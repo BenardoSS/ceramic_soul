@@ -66,4 +66,3 @@ try {
 	// Показываем первый контент при загрузке
 	contents.forEach((c, i) => (c.style.display = i === 0 ? "flex" : "none"));
 } catch (e) {}
-
