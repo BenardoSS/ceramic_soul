@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-
+import JustValidate from "just-validate";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -66,3 +66,45 @@ try {
 	// Показываем первый контент при загрузке
 	contents.forEach((c, i) => (c.style.display = i === 0 ? "flex" : "none"));
 } catch (e) {}
+
+try{
+const validator = new JustValidate('form');
+
+validator
+  .addField('#name', [
+    {
+      rule: 'required',
+	  errorMessage: 'Please fill the name',
+    },
+    {
+      rule: 'minLength',
+      value: 2,
+    },
+  ])
+    .addField('#email', [
+    {
+      rule: 'required',
+	  errorMessage: 'Please fill the email',
+    },
+    {
+      rule: 'email',
+    },
+  ])
+      .addField('#question', [
+    {
+      rule: 'required',
+	  errorMessage: 'Please fill the question',
+    },
+    {
+      rule: 'minLength',
+	  value: 5,
+    },
+  ])
+        .addField('#checkbox', [
+    {
+      rule: 'required',
+	  errorMessage: 'Please accept the terms',
+    },
+  ])
+} catch (e) {
+}
